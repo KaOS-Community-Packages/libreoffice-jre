@@ -24,7 +24,7 @@ makedepends=('perl-archive-zip' 'zip' 'unzip' 'gperf' 'cppunit' 'libldap'
 _mirror="https://tdf.mirror.liteserver.nl/libreoffice/src/$_pkgver"
 #_mirror="http://dev-builds.libreoffice.org/pre-releases/src""
 _additional_source_url="http://dev-www.libreoffice.org/src"
-source=(${_mirror}/${pkgname}{,-help,-translations}-${_LOver}.tar.xz  
+source=(${_mirror}/libreoffice{,-help,-translations}-${_LOver}.tar.xz  
 	${_additional_source_url}/xmlsec1-1.2.28.tar.gz     
 	${_additional_source_url}/35c94d2df8893241173de1d16b6034c0-swingExSrc.zip
 	${_additional_source_url}/798b2ffdc8bcfe7bca2cf92b62caf685-rhino1_5R5.zip
