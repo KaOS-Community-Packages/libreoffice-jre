@@ -1,8 +1,8 @@
 pkgname=libreoffice-jre
-_LOver=6.4.2.2
-pkgver=6.4.2.2
-_pkgver=6.4.2
-pkgrel=1
+_LOver=6.4.5.2
+pkgver=6.4.5.2
+_pkgver=6.4.5
+pkgrel=2
 arch=('x86_64')
 license=('LGPL3')
 url="https://www.libreoffice.org/"
@@ -24,7 +24,7 @@ makedepends=('perl-archive-zip' 'zip' 'unzip' 'gperf' 'cppunit' 'libldap'
 _mirror="https://tdf.mirror.liteserver.nl/libreoffice/src/$_pkgver"
 #_mirror="http://dev-builds.libreoffice.org/pre-releases/src""
 _additional_source_url="http://dev-www.libreoffice.org/src"
-source=(${_mirror}/libreoffice{,-help,-translations}-${_LOver}.tar.xz  
+source=(${_mirror}/${pkgname}{,-help,-translations}-${_LOver}.tar.xz  
 	${_additional_source_url}/xmlsec1-1.2.28.tar.gz     
 	${_additional_source_url}/35c94d2df8893241173de1d16b6034c0-swingExSrc.zip
 	${_additional_source_url}/798b2ffdc8bcfe7bca2cf92b62caf685-rhino1_5R5.zip
@@ -131,9 +131,9 @@ source=(${_mirror}/libreoffice{,-help,-translations}-${_LOver}.tar.xz
 	libqxp-0.0.2.tar.xz
 	QR-Code-generator-1.4.0.tar.gz)
 
-md5sums=('1e7df8ecc616b778293a90b874d560b1'
-         '24108abfa209da008b1e24d11bea6684'
-         '580c22ac9b84e76cdfdb02287a9728be'
+md5sums=('7305ed1b5774483ca9ca0d6906d8049a'
+         '19da65b2748531e85740163fc9695f00'
+         '58771e45d87413f96a33e35d821a8122'
          '69b8d95c009a404462e19f335e650241'
          '35c94d2df8893241173de1d16b6034c0'
          '798b2ffdc8bcfe7bca2cf92b62caf685'
@@ -192,7 +192,7 @@ build() {
 
 	cd ${srcdir}/libreoffice-$_LOver
 	# poppler 0.86 needed
-	patch -p1 -i ${srcdir}/poppler.diff
+	# patch -p1 -i ${srcdir}/poppler.diff
 
 	# move external sources into place
 	mkdir ${srcdir}/ext_sources &&	pushd ${srcdir}/ext_sources
@@ -285,7 +285,7 @@ build() {
 		--with-system-clucene \
 		--disable-dependency-tracking \
 		--disable-cve-tests \
-		--with-theme="breeze breeze_dark breeze_svg sifr" \
+		--with-theme="breeze breeze_dark breeze_svg breeze_dark_svg sifr sifr_svg sifr_dark sifr_dark_svg" \
 		--disable-gtk3-kde5 \
 		--enable-kf5 \
 		--enable-qt5 \
